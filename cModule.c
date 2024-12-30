@@ -3,5 +3,5 @@
 #include <stdio.h>
 
 void cFunction() {
-    printf("Hello from C function!\n");
+    printf("C function is imported in cpp project successfully!\n");
 }

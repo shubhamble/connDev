@@ -7,5 +7,8 @@ extern "C" {
     #include "media_info.h"
 }
 
+// #define ANIMAL
+// #define VIDEO
+
 int sum(std::vector<int> v);
 int sum(std::queue<int> q);
