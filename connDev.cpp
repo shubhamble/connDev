@@ -35,10 +35,7 @@ int main(int argc, char *argv[]) {
         delete c1;
     #endif
 
-    cFunction();
-
     std::cout << "Parsing the arguments: \n1. For vector 2. For queue " << std::endl;
-
     // Parse arguments
     for (int i = 1; i < argc; ++i)
     {
@@ -59,6 +56,8 @@ int main(int argc, char *argv[]) {
             std::cout << "Unknown argument: " << argv[i] << std::endl;
         }
     }
+
+    cFunction();
 
     // ************
     // Please give video file name
