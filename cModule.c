@@ -6,6 +6,33 @@ struct node{
     struct node *next;
 };
 
+void bubbleSortList(struct node* head) {
+    int swapped;
+    struct node* ptr1;
+    struct node* lptr = NULL;
+
+    // Check if the list is empty
+    if (head == NULL)
+        return;
+
+    do {
+        swapped = 0;  // Flag to check swapping
+        ptr1 = head;
+
+        while (ptr1->next != lptr) {
+            if (ptr1->data > ptr1->next->data) {
+                // Swap the data
+                int temp = ptr1->data;
+                ptr1->data = ptr1->next->data;
+                ptr1->next->data = temp;
+                swapped = 1; // Set swapped to true
+            }
+            ptr1 = ptr1->next;
+        }
+        lptr = ptr1; // Update the last pointer
+    } while (swapped); // Continue until no swaps occur
+}
+
 struct node *newNode(int data)
 {
     struct node *new_node = (struct node*)malloc(sizeof(struct node));
@@ -44,11 +71,13 @@ struct node* reverseList(struct node* head) {
 
 void printLinkedLst(struct node *p)
 {
+    printf("Data:");
     while(p!=NULL)
     {
-        printf("Data: %d \n", p->data);
+        printf(" %d \t", p->data);
         p = p->next;
     }
+    printf("\n");
 }
 
 void cFunction()
@@ -73,5 +102,21 @@ void cFunction()
     else
     {
         printf("No changes made to the linked list.\n");
+    }
+
+    printf("Do you want to sort this linked list. Y/N:\n");
+    getchar();
+    scanf("%c", &c);
+    if (c == 'Y' || c == 'y')
+    { 
+        // Sort the linked list using Bubble Sort
+        bubbleSortList(head);
+
+        printf("Linked List after sorting:\n");
+        printLinkedLst(head);
+    }
+    else
+    {
+        printf("skipping the sorting of linked list.");
     }
 }
