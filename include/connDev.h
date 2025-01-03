@@ -8,7 +8,8 @@ extern "C" {
 }
 
 // #define ANIMAL
-// #define VIDEO
+// #define FFMPEG_VIDEO
+#define GST_VIDEO
 
 int sum(std::vector<int> v);
 int sum(std::queue<int> q);

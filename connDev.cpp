@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
     // ************
     // Please give video file name
     // ************
-    #ifdef VIDEO
+    #ifdef FFMPEG_VIDEO
         std::cout << "Parsing the arguments" << std::endl;
         if (argc < 2) {
             fprintf(stderr, "Usage: %s <input_file>\n", argv[0]);
@@ -70,7 +70,9 @@ int main(int argc, char *argv[]) {
         }
         std::cout << "Print media: " << print_media_info(argv[1]) << std::endl;
     #endif
+    #ifdef GST_VIDEO
+        videoPlayer();
+    #endif
 
-    // Call the media info function from the module
     return 0;
 }
