@@ -52,6 +52,9 @@ int main(int argc, char *argv[]) {
             q.push(30);
             std::cout << "Sum is: " << sum(q) << std::endl;
         }
+        if (std::strcmp(argv[i], "-s") == 0) {
+            std::cout << "Selected the sort option. Please enter the digits: \n" << std::endl;
+        }
         else {
             std::cout << "Unknown argument: " << argv[i] << std::endl;
         }
@@ -59,10 +62,12 @@ int main(int argc, char *argv[]) {
 
     cFunction();
 
+
+
     // ************
     // Please give video file name
     // ************
-    #ifdef FFMPEG_VIDEO
+    #ifdef ENABLE_FFMPEG_VIDEO
         std::cout << "Parsing the arguments" << std::endl;
         if (argc < 2) {
             fprintf(stderr, "Usage: %s <input_file>\n", argv[0]);
@@ -70,7 +75,7 @@ int main(int argc, char *argv[]) {
         }
         std::cout << "Print media: " << print_media_info(argv[1]) << std::endl;
     #endif
-    #ifdef GST_VIDEO
+    #ifdef ENABLE_GST_VIDEO
         videoPlayer();
     #endif
 
