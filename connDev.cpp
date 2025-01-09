@@ -1,5 +1,6 @@
 #include "connDev.h"
 #include "runtimePoly.h"
+using namespace std;
 
 int sum(std::vector<int> v){
     int sum = 0;
@@ -15,6 +16,19 @@ int sum(std::queue<int> q){
         sum+= q.front();
     }
     return sum;
+}
+
+void mapProc(){
+    map<string, int> people = {{"shubham", 92},
+                               {"Rohan", 78},
+                               {"Sandeep", 43}
+                              };
+    people.insert({"Garry", 66});
+    people.at("shubham") = 96;
+
+    for(auto person : people){
+        cout << person.first << ":" << person.second << endl;
+    }
 }
 
 int main(int argc, char *argv[]) {
@@ -44,6 +58,7 @@ int main(int argc, char *argv[]) {
             std::vector<int> v = {2, 3, 4, 3};
             std::cout << "Sum is: " << sum(v) << std::endl;
         }
+        // -q for processing queue logic
         if (std::strcmp(argv[i], "-q") == 0) {
             std::cout << "Running Queue sum: " << std::endl;
             std::queue<int> q;
@@ -52,8 +67,14 @@ int main(int argc, char *argv[]) {
             q.push(30);
             std::cout << "Sum is: " << sum(q) << std::endl;
         }
+        // s for doing sorting
         if (std::strcmp(argv[i], "-s") == 0) {
             std::cout << "Selected the sort option. Please enter the digits: \n" << std::endl;
+        }
+        // m for processing map
+        if (std::strcmp(argv[i], "-m") == 0) {
+            std::cout << "Selected the map logic: \n" << std::endl;
+            mapProc();
         }
         else {
             std::cout << "Unknown argument: " << argv[i] << std::endl;
